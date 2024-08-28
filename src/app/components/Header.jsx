@@ -5,32 +5,25 @@ import Link from 'next/link';
 import { navMenu } from '../data/navdata';
 
 const HeadBar = () => {
-    // State to manage mobile menu visibility
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    // State to track the currently active menu item
     const [activeMenu, setActiveMenu] = useState(null);
 
-    // Function to toggle mobile menu visibility
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    // Function to handle mouse enter events for dropdown menus
     const handleMouseEnter = (menuName) => {
         setActiveMenu(menuName);
     };
 
-    // Function to handle mouse leave events for dropdown menus
     const handleMouseLeave = () => {
         setActiveMenu(null);
     };
 
     return (
-        <header className="bg-white  shadow rounded-md mb-5 text-zinc-950">
+        <header className="bg-white shadow rounded-md text-zinc-950 sticky top-0 z-50">
             <div className="container mx-auto flex justify-between items-center p-4">
-                {/* Logo and navigation container */}
                 <div className="flex items-center">
-                    {/* Logo */}
                     <h1 className="text-2xl font-bold">
                         <Link href="https://www.tyreplex.com/">
                             <Image
@@ -42,7 +35,6 @@ const HeadBar = () => {
                             />
                         </Link>
                     </h1>
-                    {/* Desktop navigation */}
                     <nav className="ml-8 hidden md:flex space-x-4 items-center">
                         {navMenu.map((menuItem) => (
                             <div
@@ -65,7 +57,6 @@ const HeadBar = () => {
                                         {menuItem.menuName}
                                     </Link>
                                 )}
-                                {/* Dropdown menu */}
                                 {menuItem.dropdown && activeMenu === menuItem.menuName && (
                                     <div className="absolute left-0 w-48 bg-white rounded-md shadow-lg z-20">
                                         {menuItem.subMenu.map((subMenuItem) => (
@@ -83,7 +74,6 @@ const HeadBar = () => {
                         ))}
                     </nav>
                 </div>
-                {/* Login button for desktop */}
                 <div className="hidden md:block">
                     <Link
                         href="https://www.tyreplex.com/login"
@@ -92,7 +82,6 @@ const HeadBar = () => {
                         Login
                     </Link>
                 </div>
-                {/* Mobile menu toggle button */}
                 <button onClick={toggleMobileMenu} className="md:hidden focus:outline-none ml-4">
                     <svg
                         className="w-6 h-6"
@@ -110,11 +99,9 @@ const HeadBar = () => {
                     </svg>
                 </button>
             </div>
-            {/* Mobile menu */}
             {isMobileMenuOpen && (
                 <nav className="md:hidden fixed inset-0 bg-white z-30">
                     <div className="flex flex-col space-y-2 p-4">
-                        {/* Close Button */}
                         <button onClick={toggleMobileMenu} className="self-end mb-4">
                             <svg
                                 className="w-6 h-6 text-black"

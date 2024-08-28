@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from 'next/image';
 import { googleFeedback } from "../data/feedbackdata";
-import { CheckCircle, ChevronsLeft, ChevronsRight, Clock, MapPin, Verified } from 'lucide-react';
+import { CheckCircle, ChevronsLeft, ChevronsRight, Clock, MapPin, Star, Verified } from 'lucide-react';
 import { dealsIn } from '../data/deaslin';
 import FilterAndProducts from './Filterandproduct';
 import Footer from './Footer';
@@ -67,7 +67,7 @@ function Introcontainer() {
                         </span>
                         <h1 className="text-black text-xl md:text-2xl font-bold">SHREE HEMKUNT TYRES AND SERVICES</h1>
                         <div className="flex items-center space-x-2">
-                            <span className="text-green-500 text-lg">4.9</span>
+                            <span className="flex text-green-500 text-lg"><Star className='w-5'/> 4.9</span>
                             <span className="text-gray-500">(2278 Reviews)</span>
                         </div>
                         <div className='flex items-top'>

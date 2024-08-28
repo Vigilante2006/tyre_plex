@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { products } from "../data/products";
-import { IndianRupeeIcon, ShieldCheckIcon } from "lucide-react";
+import { IndianRupeeIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 
 const FilterAndProducts = () => {
@@ -71,44 +71,40 @@ const FilterAndProducts = () => {
             {/* Product Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredProducts.map((product) => (
-                    <div key={product.id} className="flex flex-col border rounded-lg p-4 shadow-lg relative bg-white overflow-hidden">
-                        <div className="flex flex-col justify-between h-full">
-                            <div className="mb-4">
-                                <Image
-                                    src={product.companyLogo}
-                                    alt="Company Logo"
-                                    width={50}
-                                    height={27}
-                                    priority
-                                />
-                                <p className="text-xs text-gray-500 font-semibold">{product.name}</p>
-                                <p className="text-xs text-gray-600 mt-1">{product.size}</p>
-                                <p className="text-gray-500 text-xs mt-1">{product.tubeType}</p>
-                                <div className="flex items-center mt-2">
-                                    <span className="text-green-500 font-bold text-[10px]">★{product.popularity}</span>
-                                    <span className="text-gray-400 ml-2 text-xs">{`(${product.reviews} Reviews)`}</span>
-                                </div>
-                                <div className="flex items-center mt-2">
-                                    <IndianRupeeIcon className="w-[15px]" />
-                                    <p className="text-black text-sm ml-1">{product.price}</p>
-                                </div>
-                                {product.offer ? (
-                                    <p className="text-green-500 text-[10px]">Offer Available</p>
-                                ) : (
-                                    <p className="text-red-500 text-[10px]">No Offer Available</p>
-                                )}
+                    <div key={product.id} className="flex border rounded-lg p-4 shadow-lg relative bg-white overflow-hidden">
+                        <div>
+                            <Image
+                                src={product.companyLogo}
+                                alt="Company Logo"
+                                width={50}
+                                height={27}
+                                priority
+                            />
+                            <p className="text-xs text-gray-500 font-semibold">{product.name}</p>
+                            <p className="text-xs text-gray-600 mt-1">{product.size}</p>
+                            <p className="text-gray-500 text-xs mt-1">{product.tubeType}</p>
+                            <div className="flex items-center mt-2">
+                                <span className="flex items-center text-green-500 font-bold text-[10px]"><StarIcon className="w-[10px]"/>{product.popularity} </span>
+                                <span className="text-gray-500 font-bold text-[10px] ml-1"> {`(${product.reviews} Reviews)`}</span>
                             </div>
-                            <div className="relative h-24 w-full flex justify-center">
-                                <Image
-                                    src={product.imageUrl}
-                                    alt={product.name}
-                                    layout="fill"
-                                    objectFit="contain"
-                                    priority
-                                />
+                            <div className="flex items-center mt-2">
+                                <IndianRupeeIcon className="w-[15px]" />
+                                <p className="text-black text-sm ml-1">{product.price}</p>
                             </div>
+                            {product.offer ? (
+                                <p className="text-green-500 text-[10px]">Offer Available</p>
+                            ) : (
+                                <p className="text-red-500 text-[10px]">No Offer Available</p>
+                            )}
                         </div>
-                        <div className="absolute top-0 right-0 flex items-center bg-[#ee453f] text-white px-[3px] py-1 rounded-bl-md">
+                        <div className="relative mt-4">
+                            <img
+                                src={product.imageUrl}
+                                alt={product.name}
+                                className="w-full h-auto object-contain"
+                            />
+                        </div>
+                        <div className="absolute top-0 right-0 flex items-center bg-[#ee453f] text-white px-[3px] rounded-bl-md transform">
                             <ShieldCheckIcon className="w-[15px]" />
                             <span className="text-xs font-bold ml-1">{product.warranty}</span>
                         </div>
