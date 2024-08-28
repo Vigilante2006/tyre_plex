@@ -1,15 +1,15 @@
+import Footer from "./components/Footer";
 import HeadBar from "./components/Header";
 import Introcontainer from "./components/Introcontainer";
 
 export default function Home() {
   return (
-    <>
+    <main className="flex flex-col min-h-screen">
       <HeadBar />
-      <main className="w-full flex justify-center items-center px-4 md:px-8 lg:px-12">
-        <div className="w-full max-w-7xl flex justify-center">
-          <Introcontainer />
-        </div>
-      </main>
-    </>
+      <div className="flex-grow w-full max-w-7xl mx-auto px-4">
+        <Introcontainer />
+      </div>
+      <Footer />
+    </main>
   );
 }

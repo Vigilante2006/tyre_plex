@@ -4,33 +4,41 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <footer className="">
-            <div className="flex justify-between bg-[#ffeaa9] text-black container mx-auto px-4 py-10">
-                <div className="w-[80%]">
+        <footer className="text-black">
+            {/* Question Section */}
+            <div className="bg-[#ffeaa9] container mx-auto flex flex-col lg:flex-row justify-between items-center px-4 py-6 lg:py-10">
+                <div className="lg:w-[80%] w-full text-center lg:text-left">
                     <h6 className="font-semibold">Have a question about Tyres?</h6>
                     <p className="text-gray-600 text-xs">Get an answer in 24 hours from our experts.</p>
-                    <input className="mt-3 text-xs py-2 px-2 w-[35%] rounded-full border-gray-300" type="text" placeholder="Ask or search your question" />
+                    <input 
+                        className="mt-3 text-xs py-2 px-2 w-full lg:w-[70%] xl:w-[50%] rounded-full border-gray-300" 
+                        type="text" 
+                        placeholder="Ask or search your question" 
+                    />
                 </div>
-                <div className="w-[20%]">
+                <div className="lg:w-[20%] w-full mt-4 lg:mt-0 flex justify-center lg:justify-end">
                     <Image
                         src="/haveQuestion-bg.webp"
                         alt="Tyre Plex"
                         width={100}
                         height={100}
+                        className="w-[80px] lg:w-[100px]" // Make the image responsive
                     />
                 </div>
             </div>
-            <div className="container mx-auto px-4 py-10">
-                <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            {/* Links Section */}
+            <div className="container mx-auto px-4 py-6 lg:py-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Column 1 */}
-                    <div>
+                    <div className="text-center lg:text-left">
                         <Image
                             src="/TP-logo.webp"
                             alt="Tyre Plex"
                             width={100}
                             height={24}
                         />
-                        <ul className="inline-flex gap-2 mt-2">
+                        <ul className="inline-flex gap-2 mt-2 justify-center lg:justify-start">
                             <li>
                                 <Link href="/" className="text-xs hover:underline">
                                     <Facebook />
@@ -43,8 +51,9 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
+
                     {/* Column 2 */}
-                    <div>
+                    <div className="text-center lg:text-left">
                         <ul>
                             <li>
                                 <Link href="/about" className="text-xs hover:underline">
@@ -60,7 +69,7 @@ const Footer = () => {
                     </div>
 
                     {/* Column 3 */}
-                    <div>
+                    <div className="text-center lg:text-left">
                         <ul>
                             <li>
                                 <Link href="/privacy_policy" className="text-xs hover:underline">
@@ -76,7 +85,7 @@ const Footer = () => {
                     </div>
 
                     {/* Column 4 */}
-                    <div>
+                    <div className="text-center lg:text-left">
                         <ul>
                             <li>
                                 <Link href="/contact_us" className="text-xs hover:underline">
@@ -96,8 +105,13 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <hr className="mt-2" />
-                <div className="mt-8 text-center text-xs text-gray-500">
+            </div>
+
+            <hr className="mt-2" />
+
+            {/* Footer Note */}
+            <div className="container mx-auto px-4 py-4">
+                <div className="text-center text-xs text-gray-500">
                     <p>&copy; {new Date().getFullYear()} TyrePlex Technologies & Commerce Pvt. Ltd. All Rights Reserved.</p>
                 </div>
             </div>
