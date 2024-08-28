@@ -67,7 +67,7 @@ function Introcontainer() {
                         </span>
                         <h1 className="text-black text-xl md:text-2xl font-bold">SHREE HEMKUNT TYRES AND SERVICES</h1>
                         <div className="flex items-center space-x-2">
-                            <span className="flex text-green-500 text-lg"><Star className='w-5'/> 4.9</span>
+                            <span className="flex text-green-500 text-lg"><Star className='w-5' /> 4.9</span>
                             <span className="text-gray-500">(2278 Reviews)</span>
                         </div>
                         <div className='flex items-top'>
@@ -88,7 +88,7 @@ function Introcontainer() {
                             alt="Shop Image"
                             width={289}
                             height={163}
-                            className="w-full md:w-1/2 h-auto object-cover rounded-md"
+                            className="w-full sm:w-1/2 h-auto object-cover rounded-md"
                             priority
                         />
                         <Image
@@ -96,9 +96,10 @@ function Introcontainer() {
                             alt="Shop Image"
                             width={289}
                             height={163}
-                            className="w-full md:w-1/2 h-auto object-cover rounded-md mt-4 sm:mt-0"
+                            className="w-full sm:w-1/2 h-auto object-cover rounded-md mt-4 sm:mt-0"
                             priority
                         />
+
                     </div>
                 </div>
 
